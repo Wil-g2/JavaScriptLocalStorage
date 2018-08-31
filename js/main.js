@@ -40,8 +40,8 @@ function formatValue(value){
 function addList(){
     var desc = document.getElementById('desc').value;
     var amount = document.getElementById('amount').value;
-    var value = document.getElementById('value').value;
-    if (!validation()){
+    var value = document.getElementById('value').value.replace(',', '.');;
+    if (!validation()){       
         list.unshift({"desc":desc, "amount":amount, "value":value});        
         clean();
         setList(list);
@@ -60,7 +60,7 @@ function clean(){
 function UpdateData(){
     list[idEdit].desc =  document.getElementById('desc').value;     
     list[idEdit].amount =  document.getElementById('amount').value; 
-    list[idEdit].value =  document.getElementById('value').value;         
+    list[idEdit].value =  document.getElementById('value').value.replace(',','.');         
     if (!validation()){
         CleanError();
         ResetForm();
@@ -74,7 +74,7 @@ function GetId(id){
     var obj = list[id];
     document.getElementById('desc').value = obj.desc; 
     document.getElementById('amount').value = obj.amount; 
-    document.getElementById('value').value = obj.value;
+    document.getElementById('value').value = obj.value.replace('.', ',');
     document.getElementById('formEdit').style.display= 'inline-block';
     document.getElementById('add').style.display= 'none';
     idEdit = id;
@@ -120,7 +120,7 @@ function validation(){
     if (document.getElementById('value').value==""){
         document.getElementById('error').innerHTML =   '<p class="alert alert-secondary" >Fill the Value!</p>'; 
         return true;
-    }else if ((document.getElementById('value').value!=parseFloat(document.getElementById('value').value))){
+    }else if ((document.getElementById('value').value.replace(',','.')!=parseFloat(document.getElementById('value').value.replace(',','.')))){
         document.getElementById('error').innerHTML =  '<p class="alert alert-secondary" >Value not is valid!</p>'; 
         return true;
     }    
@@ -149,5 +149,6 @@ function initListStorage(){
     }
     setList(list);
 }
+
 
 initListStorage();
