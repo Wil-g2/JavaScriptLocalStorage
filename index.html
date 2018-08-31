@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" />
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+    <style>
+        #formEdit,
+        #panelError {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-collapse">
+                <a id="navTitle" class="navbar-brand" href="index.html"></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container"><br>
+        <div class="row">
+            <div class="form-row">
+                <div class="col-3">                   
+                    <input type="text" placeholder="Description " id="desc" class="form-control" />
+                </div>
+                <div class="col-3">                   
+                    <input type="text" placeholder="Amount " id="amount" class="form-control" />
+                </div>
+                <div class="col-3">
+                    <input type="text" placeholder="Value " id="value" class="form-control" />
+                </div>
+                <div class="col-3" id="add">
+                    <button type="text" onclick="addList()" class="btn btn-default"> Add </button>
+                    <button type="text" onclick="ResetForm()" class="btn btn-default"> Reset </button>
+
+                </div>
+                <div class="col-3" id="formEdit">
+                    <button type="text" onclick="UpdateData()" id="edit" class="btn btn-default"> Save </button>
+                    <button type="text" onclick="ResetForm()" id="cancel" class="btn btn-default"> Cancel </button>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 id="panelError" class="panel-title">Error</h3>
+            </div>
+            <div id="error" class="panel-body">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <table id="listTable" class="table table-bordered table-striped">
+            </table>
+        </div>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script type="text/javascript" charset="utf-8">
+        $(document).ready(function() {
+                 $('#listTable').dataTable();
+        } );
+
+        $(docunment).load(function(){
+            $('#listTable').dataTable();
+        });
+    </script>-->
+</body>
+</html>
